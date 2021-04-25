@@ -1,0 +1,15 @@
+{{> head title="Homepage" description="Harold App Bare theme" }}
+
+<div class="container page-container">
+  {{postsList
+  perPageLimit=6
+  currentPage=1
+  className="post-list-items"
+  dateFormat='dd mmmm yyyy'
+  }}
+  <div class="home-see-all-posts">
+    <a href="/all-posts-list" class="button">See all posts</a>
+  </div>
+</div>
+
+{{> footer}}

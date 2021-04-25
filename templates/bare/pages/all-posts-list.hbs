@@ -1,0 +1,13 @@
+{{> head title="All posts" description="Harold App Bare theme" }}
+
+<div class="container page-container all-posts-page">
+  {{postsList
+  noImage=true
+  noExcerpt=true
+  noReadMoreButton=true
+  className="post-list-items"
+  dateFormat='dd mmmm yyyy'
+  }}
+</div>
+
+{{> footer}}

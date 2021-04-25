@@ -1,0 +1,129 @@
+.homepage-featured-post {
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.homepage-featured-post--article {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.homepage-featured-post--image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+
+  &::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba($color-main-dark, 0.4);
+  }
+}
+
+.homepage-featured-post--title {
+  text-align: center;
+  font-size: 70px;
+  color: $color-main-light;
+  font-weight: 900;
+  line-height: 1.3;
+  text-shadow: 1px 1px 0px $color-main-dark;
+  text-transform: uppercase;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 1000px) {
+    font-size: 60px;
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 50px;
+  }
+}
+
+.homepage-featured-post--button {
+  display: inline-block;
+  padding: 8px 25px;
+  font-size: 16px;
+  font-weight:  600;
+  background-color: $color-main-contrast;
+  color: $color-main-light;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 15px;
+  text-shadow: 1px 1px 0px darken($color-main-contrast, 20%);
+  transition: background-color .3s;
+
+  &:hover {
+    background-color: darken($color-main-contrast, 15%);
+  }
+}
+
+.homepage-header {
+  font-size: 60px;
+  padding: 60px 0;
+  line-height: 1;
+
+  &::after {
+    content: " ";
+    display: block;
+    width: 150px;
+    height: 6px;
+    background-color: $color-main-dark;
+    margin-top: 25px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    font-size: 50px;
+    padding: 50px 0;
+
+    &::after {
+      width: 125px;
+      margin-top: 20px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 40px;
+    padding: 40px 0;
+
+    &::after {
+      width: 100px;
+      margin-top: 15px;
+    }
+  }
+}
+
+.homepage-section {
+  margin-bottom: 20px;
+
+  &.homepage-section-bg {
+    padding: 10px 0 60px;
+    background-color: $color-main-contrast2;
+    margin-top: 60px;
+  }
+
+  .homepage-header  {
+    padding-top: 40px;
+  }
+}

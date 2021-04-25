@@ -1,0 +1,24 @@
+{
+    "extends": [
+      "plugin:prettier/recommended",
+      "eslint:recommended"
+    ],
+    "env": {
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "rules": {
+      "no-var": "error",
+      "prefer-const": "error",
+      "no-use-before-define": "error",
+      "no-mixed-spaces-and-tabs": "error",
+      "no-nested-ternary": "error",
+      "no-unused-vars": "error",
+      "prettier/prettier": ["error", {
+        "endOfLine": "auto"
+      }]
+    }
+  }
+  

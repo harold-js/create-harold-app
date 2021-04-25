@@ -1,0 +1,13 @@
+{
+  "name": "{{projectName}}",
+  "version": "0.0.1",
+  "description": "{{projectName}}",
+  "main": "index.js",
+  "scripts": {
+    "build": "harold-scripts build",
+    "start": "harold-scripts start"
+  },
+  "devDependencies": {
+    "harold-scripts": "^0.1.0"
+  }
+}
