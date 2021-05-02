@@ -4,10 +4,15 @@
       "eslint:recommended"
     ],
     "env": {
+      "browser": true,
       "node": true
     },
     "parserOptions": {
       "ecmaVersion": 2018
+    },
+    "globals": {
+      "harold": "readonly",
+      "lunr": "readonly"
     },
     "rules": {
       "no-var": "error",

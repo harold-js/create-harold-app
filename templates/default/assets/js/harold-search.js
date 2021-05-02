@@ -6,22 +6,30 @@
   const searchOverlay = document.querySelector('[data-js-search-overlay]');
   const body = document.body;
   const searchInput = document.querySelector('[data-js-search-input]');
-  const searchResultsContainer = document.querySelector('[data-js-search-results]')
+  const searchResultsContainer = document.querySelector(
+    '[data-js-search-results]'
+  );
 
-  if (searchIcon && searchInput && searchIconClose && searchOverlay && searchResultsContainer) {
+  if (
+    searchIcon &&
+    searchInput &&
+    searchIconClose &&
+    searchOverlay &&
+    searchResultsContainer
+  ) {
     searchIcon.addEventListener('click', function () {
       searchOverlay.classList.add('js-visible');
       body.classList.add('js-overflow-y-hidden');
       searchInput.focus();
     });
-  
+
     searchIconClose.addEventListener('click', function () {
       searchInput.value = '';
       searchResultsContainer.innerHTML = '';
       searchOverlay.classList.remove('js-visible');
       body.classList.remove('js-overflow-y-hidden');
     });
-  
+
     searchInput.addEventListener('keyup', function () {
       if (!this.value) {
         searchResultsContainer.innerHTML = '';
