@@ -1,4 +1,4 @@
-## [0.3.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.3.0) (2021-05-02)
+### [0.3.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.3.0) (2021-05-02)
 
 configuration possibility
 
