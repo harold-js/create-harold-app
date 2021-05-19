@@ -6,6 +6,10 @@ Harold is a static site and blog generator based on Handlebars and Markdown.
 
 [Static sites and blogs with HaroldJS](https://youtu.be/DG0T1Fg0mq0)
 
+### Documentation
+
+[www.haroldjs.com](https://www.haroldjs.com/)
+
 ## Why another one?
 
 I wanted to have a simple static site generator to build and host on Netlify. There are many such solutions, but I wanted to have complete control.
@@ -89,10 +93,6 @@ If you are using the search system, change `postsPath` in `harold-search.js`.
 
 1. Check if there are any breaking changes in the `CHANGELOG.md`
 2. In your project, update the version of `harold-scripts` package
-
-### Documentation
-
-WIP. Available soon.
 
 ### License
 
