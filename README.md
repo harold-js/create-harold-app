@@ -1,6 +1,8 @@
 ## create-harold-app
 
-Harold is a static site and blog generator based on Handlebars and Markdown.
+Harold is a static site and blog generator based on Handlebars and Markdown. With a built-in search engine and ready-to-use responsive templates.
+
+![harold js image](https://www.haroldjs.com/assets/images/harold-start.png)
 
 ## Intro 
 
@@ -9,25 +11,6 @@ Harold is a static site and blog generator based on Handlebars and Markdown.
 ### Documentation
 
 [www.haroldjs.com](https://www.haroldjs.com/)
-
-## Why another one?
-
-I wanted to have a simple static site generator to build and host on Netlify. There are many such solutions, but I wanted to have complete control.
-
-What is essential, I equipped it with two templates that you can use and modify for your needs. I prepared the templates system for custom ones in the future. Templates are great because we don’t need to start every site/blog repeatedly from the ground.
-
-## When to use it
-
-- when you want to build a static website/blog with simple search functionality (default theme)
-- when you want to build a small (maybe medium) site or blog
-- when you don't want to use any big and complicated solution
-- when you know how to use the Handlebars template system
-
-## When not to use it
-
-- when you want to build something significant (not tested with big projects, tested with over 120 markdown files, works quite fast)
-- when you don't want to use Scss (you can still write standard CSS in .scss files)
-- when you want to rely on something which has its community
 
 ### Creating an app
 
@@ -93,6 +76,90 @@ If you are using the search system, change `postsPath` in `harold-search.js`.
 
 1. Check if there are any breaking changes in the `CHANGELOG.md`
 2. In your project, update the version of `harold-scripts` package
+
+## Some of the recipes
+
+Below are ready-to-use recipes. You can take them as inspiration or copy it as it is and use in your custom template. See more at [www.haroldjs.com](https://www.haroldjs.com/docs/recipes)
+
+#### Posts categories
+
+You can use `postsList` Handlebars helper with `perPageLimit` param. You can use tags as categories. Posts will be divided into sections and listed by tag name.
+
+```handlebars
+<div class="homepage-section homepage-section-bg">
+  <div class="container">
+    <h1 class="homepage-header">Coding</h1>
+    {{postsList
+    perPageLimit=3
+    currentPage=1
+    className="post-list-items"
+    dateFormat="dd mmmm yyyy"
+    byTagName="coding"
+    readMoreButtonLabel="&#8674;"
+    }}
+  </div>
+</div>
+
+<div class="homepage-section">
+  <div class="container">
+    <h1 class="homepage-header">Art and Design</h1>
+    {{postsList
+    perPageLimit=3
+    currentPage=1
+    className="post-list-items"
+    dateFormat="dd mmmm yyyy"
+    byTagName="art"
+    readMoreButtonLabel="&#8674;"
+    }}
+  </div>
+</div>
+```
+
+#### Similar posts
+
+You can use the `postsList` with `byTagName`, which you should set up the same as the current post tag or tags. This way, you will be able to display a similar posts list. Remember to do this in the layout hbs file, not in Markdown files.
+
+```handlebars
+{{postsList
+  className="docs-articles-list"
+  byTagName=tags.[0]
+}}
+```
+
+#### Featured post
+
+```handlebars
+{{postsList
+  perPageLimit=1
+  currentPage=1
+  className="homepage-featured-post"
+  dateFormat="dd mmmm yyyy"
+  noTags=true
+  noExcerpt=true
+  noDate=true
+  byTagName="featured"
+  readMoreButtonLabel="Lets dive in!"
+}}
+```
+
+### Why another one?
+
+I wanted to have a simple static site generator to build and host on Netlify. There are many such solutions, but I wanted to have complete control.
+
+What is essential, I equipped it with two templates that you can use and modify for your needs. I prepared the templates system for custom ones in the future. Templates are great because we don’t need to start every site/blog repeatedly from the ground.
+
+### When to use it
+
+- when you want to build a static website/blog with simple search functionality (default theme)
+- when you want to build a small (maybe medium) site or blog
+- when you don't want to use any big and complicated solution
+- when you know how to use the Handlebars template system
+
+### When not to use it
+
+- when you want to build something significant (not tested with big projects, tested with over 120 markdown files, works quite fast)
+- when you don't want to use Scss (you can still write standard CSS in .scss files)
+- when you want to rely on something which has its community
 
 ### License
 
