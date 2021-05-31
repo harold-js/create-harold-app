@@ -91,6 +91,10 @@ article, aside, footer, header, nav, section {
   font-size: 13px;
   color: rgba($color-main-dark, .4);
   height: $size-footer-height;
+
+  a {
+    color: $color-main-contrast;
+  }
 }
 
 .page-container,

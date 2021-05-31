@@ -7,16 +7,18 @@
   <link rel="icon" href="/assets/images/favicon.png" type="image/png" />
   <title>{{title}}</title>
   <meta name="description" content="{{description}}">
-    
+
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="{{ogTitle}}" />
   <meta property="og:description" content="{{ogDescription}}" />
-  <meta property="og:image" content="{{ogImage}}" />
+  <meta property="og:image" content={{ogImage}} />
+  <meta property="og:url" content="{{ogUrl}}" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{twitterTitle}}" />
   <meta name="twitter:description" content="{{twitterDescription}}" />
   <meta name="twitter:url" content="{{twitterUrl}}" />
-  <meta name="twitter:image" content="{{twitterImage}}" />
+  <meta name="twitter:image" content={{ogImage}} />
 
   <link rel="stylesheet"
       href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/atom-one-dark.min.css">

@@ -1,6 +1,6 @@
 {
   "name": "create-harold-app",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Static blog/site generator",
   "author": "Julian Ćwirko (julian.io)",
   "license": "MIT",
@@ -10,6 +10,7 @@
   "bin": {
     "create-harold-app": "./bin/create-harold-app.js"
   },
+  "homepage": "https://www.haroldjs.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/juliancwirko/create-harold-app"
