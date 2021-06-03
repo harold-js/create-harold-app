@@ -58,14 +58,18 @@ Harold will search up the directory tree for configuration in the following plac
 - a `.haroldrc.json`, `.haroldrc.yaml`, `.haroldrc.yml`, `.haroldrc.js`, or `.haroldrc.cjs` file
 - a `harold.config.js` or `harold.config.cjs` CommonJS module exporting an object
 
-For now, there isn't much to configure, but you can configure the directory for md files (by default `posts`) and the directory for md files layouts (by default `blog-layouts`). Quite helpful because these names are also used in urls. For example, by default, `/posts/name-of-the-post` (name of the .md file), but you might want to build the docs website and have `/docs/name-of-the-doc` (name of the .md file).
+You can configure the directory for md files (by default `posts`) and the directory for md files layouts (by default `blog-layouts`). Quite helpful because these names are also used in urls. For example, by default, `/posts/name-of-the-post` (name of the .md file), but you might want to build the docs website and have `/docs/name-of-the-doc` (name of the .md file).
+
+You can also configure the name for output directory using `outputDirName` and if you want to host your site in subdirectory you would also need to add `hostDirName`.
 
 Example of `.haroldrc` (placed in the root of your harold app):
 
 ```
 {
   mdFilesDirName: 'docs',
-  mdFilesLayoutsDirName: 'docs-layouts'
+  mdFilesLayoutsDirName: 'docs-layouts',
+  outputDirName: 'dist',
+  hostDirName: 'subfolder-name'
 }
 ```
 
@@ -157,9 +161,9 @@ What is essential, I equipped it with two templates that you can use and modify 
 
 ### When not to use it
 
-- when you want to build something significant (not tested with big projects, tested with over 120 markdown files, works quite fast)
-- when you don't want to use Scss (you can still write standard CSS in .scss files)
-- when you want to rely on something which has its community
+- when you want to build bigger projects (not tested with big projects, tested with over 120 markdown files, works quite fast)
+- when you don't want to use Scss (you can still write standard CSS in .scss files) or Handlebars
+- when you want to rely on something which has big community
 
 ### License
 

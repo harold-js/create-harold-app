@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-hrld-root="{{hostDirName}}">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/assets/images/favicon.png" type="image/png" />
+  <link rel="icon" href="{{relativePath 'assets/images/favicon.png'}}" type="image/png" />
   <title>{{title}}</title>
   <meta name="description" content="{{description}}">
 
@@ -24,7 +24,7 @@
       href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/atom-one-dark.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="{{relativePath 'styles/main.css'}}">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
     <div class="container">
       <div class="main-header-container">
         <div class="main-logo">
-          <div class="main-logo-dot"></div><a href="/">Harold</a>
+          <div class="main-logo-dot"></div><a href="{{relativePath 'index.html'}}">Harold</a>
         </div>
         <nav class="main-menu">
           <div class="main-menu-list">
