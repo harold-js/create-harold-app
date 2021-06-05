@@ -58,14 +58,18 @@ Harold will search up the directory tree for configuration in the following plac
 - a `.haroldrc.json`, `.haroldrc.yaml`, `.haroldrc.yml`, `.haroldrc.js`, or `.haroldrc.cjs` file
 - a `harold.config.js` or `harold.config.cjs` CommonJS module exporting an object
 
-For now, there isn't much to configure, but you can configure the directory for md files (by default `posts`) and the directory for md files layouts (by default `blog-layouts`). Quite helpful because these names are also used in urls. For example, by default, `/posts/name-of-the-post` (name of the .md file), but you might want to build the docs website and have `/docs/name-of-the-doc` (name of the .md file).
+You can configure the directory for md files (by default `posts`) and the directory for md files layouts (by default `blog-layouts`). Quite helpful because these names are also used in urls. For example, by default, `/posts/name-of-the-post` (name of the .md file), but you might want to build the docs website and have `/docs/name-of-the-doc` (name of the .md file).
+
+You can also configure the name for output directory using `outputDirName` and if you want to host your site in subdirectory you would also need to add `hostDirName`.
 
 Example of `.haroldrc` (placed in the root of your harold app):
 
 ```
 {
   mdFilesDirName: 'docs',
-  mdFilesLayoutsDirName: 'docs-layouts'
+  mdFilesLayoutsDirName: 'docs-layouts',
+  outputDirName: 'dist',
+  hostDirName: 'subfolder-name'
 }
 ```
 
@@ -142,6 +146,29 @@ You can use the `postsList` with `byTagName`, which you should set up the same a
 }}
 ```
 
+#### Github Pages
+
+If you want to host Harold's website under your main username (username.github.io), you would need to rename your output directory to supported by Github. It is the `docs` directory. You would need to create a `.haroldrc` file and put the output directory name there.
+
+```bash
+{
+  outputDirName: 'docs',
+}
+```
+
+Build your Harold app and push it to the repo. Remember to add the `.gitignore` file, and exclude `node_modules` but keep the output directory (`docs`).
+
+Configure  your Github Pages to take the source from the `docs` directory.
+
+If you want to host Harold's website under the repository subdirectory name (username.github.io/my-blog), you need to add `hostDirName` and remember to keep your paths in order. You can use the `relativePath` handlebars helper. The default template (from v0.4.0) is already using it, so it should work as-is.
+
+```bash
+{
+  outputDirName: 'docs',
+  hostDirName: 'my-blog'
+}
+```
+
 ### Why another one?
 
 I wanted to have a simple static site generator to build and host on Netlify. There are many such solutions, but I wanted to have complete control.
@@ -157,13 +184,19 @@ What is essential, I equipped it with two templates that you can use and modify 
 
 ### When not to use it
 
-- when you want to build something significant (not tested with big projects, tested with over 120 markdown files, works quite fast)
-- when you don't want to use Scss (you can still write standard CSS in .scss files)
-- when you want to rely on something which has its community
+- when you want to build bigger projects (not tested with big projects, tested with over 120 markdown files, works quite fast)
+- when you don't want to use Scss (you can still write standard CSS in .scss files) or Handlebars
+- when you want to rely on something which has big community
 
 ### License
 
 MIT
+
+### Harold is built upon these excellent tools:
+
+- [unified](https://unifiedjs.com/)
+- [Handlebars](https://handlebarsjs.com/)
+- [Sass](https://sass-lang.com/)
 
 ### Contact
 

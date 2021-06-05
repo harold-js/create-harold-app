@@ -1,3 +1,10 @@
+### [0.4.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.4.0) (2021-06-04)
+
+- support for relative paths, now you can host it in subdirectory
+- added `relativePath` and `hostDirName` handlebars helpers
+- new configuration in `.haroldrc` if needed (outputDirName, hostDirName)
+- new documentation articles and updates
+
 ### [0.3.3](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.3.3) (2021-05-31)
 
 - added missing og meta tags
