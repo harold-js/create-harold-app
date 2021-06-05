@@ -146,6 +146,29 @@ You can use the `postsList` with `byTagName`, which you should set up the same a
 }}
 ```
 
+#### Github Pages
+
+If you want to host Harold's website under your main username (username.github.io), you would need to rename your output directory to supported by Github. It is the `docs` directory. You would need to create a `.haroldrc` file and put the output directory name there.
+
+```bash
+{
+  outputDirName: 'docs',
+}
+```
+
+Build your Harold app and push it to the repo. Remember to add the `.gitignore` file, and exclude `node_modules` but keep the output directory (`docs`).
+
+Configure  your Github Pages to take the source from the `docs` directory.
+
+If you want to host Harold's website under the repository subdirectory name (username.github.io/my-blog), you need to add `hostDirName` and remember to keep your paths in order. You can use the `relativePath` handlebars helper. The default template (from v0.4.0) is already using it, so it should work as-is.
+
+```bash
+{
+  outputDirName: 'docs',
+  hostDirName: 'my-blog'
+}
+```
+
 ### Why another one?
 
 I wanted to have a simple static site generator to build and host on Netlify. There are many such solutions, but I wanted to have complete control.
