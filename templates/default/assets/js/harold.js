@@ -2,9 +2,9 @@ const harold = (function () {
   let searchIndex;
   let postsJSON;
   const rootDir = document.querySelector('html').dataset.hrldRoot;
-  const postsJsonDataPath = `${
-    rootDir && window.location.href.includes(rootDir) ? `/${rootDir}` : ''
-  }/jsonData/posts.json`;
+  const postsJsonDataPath =
+    (rootDir && window.location.href.includes(rootDir) ? '/' + rootDir : '') +
+    '/jsonData/posts.json';
 
   // Loads data for search index
   const fetchPostsJsonData = () => {
