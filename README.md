@@ -169,6 +169,12 @@ What is essential, I equipped it with two templates that you can use and modify 
 
 MIT
 
+### Harold is built upon these excellent tools:
+
+- [unified](https://unifiedjs.com/)
+- [Handlebars](https://handlebarsjs.com/)
+- [Sass](https://sass-lang.com/)
+
 ### Contact
 
 julian.io
