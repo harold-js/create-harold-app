@@ -1,3 +1,7 @@
+### [0.4.1](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.4.1) (2021-06-06)
+
+- fix postsList date element class name
+
 ### [0.4.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.4.0) (2021-06-04)
 
 - support for relative paths, now you can host it in subdirectory
