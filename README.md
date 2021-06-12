@@ -12,6 +12,11 @@ Harold is a static site and blog generator based on Handlebars and Markdown. Wit
 
 [www.haroldjs.com](https://www.haroldjs.com/)
 
+### Demo
+
+- [Default template](https://cocky-leakey-9ad1bc.netlify.app/)
+- [Bare template](https://elegant-volhard-48a4d1.netlify.app/)
+
 ### Creating an app
 
 ##### npx
@@ -146,7 +151,7 @@ You can use the `postsList` with `byTagName`, which you should set up the same a
 }}
 ```
 
-#### Github Pages
+#### Hosting: GitHub Pages
 
 If you want to host Harold's website under your main username (username.github.io), you would need to rename your output directory to supported by Github. It is the `docs` directory. You would need to create a `.haroldrc` file and put the output directory name there.
 
@@ -160,6 +165,10 @@ Build your Harold app and push it to the repo. Remember to add the `.gitignore` 
 
 Configure  your Github Pages to take the source from the `docs` directory.
 
+Here is the quick walk-through video on how to do that: 
+
+- [youtu.be/VjCWn3qeZnY](https://youtu.be/VjCWn3qeZnY)
+
 If you want to host Harold's website under the repository subdirectory name (username.github.io/my-blog), you need to add `hostDirName` and remember to keep your paths in order. You can use the `relativePath` handlebars helper. The default template (from v0.4.0) is already using it, so it should work as-is.
 
 ```bash
@@ -168,6 +177,14 @@ If you want to host Harold's website under the repository subdirectory name (use
   hostDirName: 'my-blog'
 }
 ```
+
+#### Hosting: Netlify
+
+With Netlify, it is a little bit simpler. You just need to point to the Git branch and directory you want to deploy your site. You don't even need the source in the repo because Netlify will run the build scripts for you.
+
+Here is the quick walk-through video on how to do that:
+
+- [youtu.be/ZjeYgAgiHRE](https://youtu.be/ZjeYgAgiHRE)
 
 ### Why another one?
 
