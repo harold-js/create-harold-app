@@ -12,6 +12,10 @@ Harold is a static site and blog generator based on Handlebars and Markdown. Wit
 
 [www.haroldjs.com](https://www.haroldjs.com/)
 
+### Articles
+
+- [Personal blog for free](https://www.julian.io/articles/blog-for-free.html)
+
 ### Demo
 
 - [Default template](https://cocky-leakey-9ad1bc.netlify.app/)
