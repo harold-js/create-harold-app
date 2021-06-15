@@ -12,10 +12,6 @@ Harold is a static site and blog generator based on Handlebars and Markdown. Wit
 
 [www.haroldjs.com](https://www.haroldjs.com/)
 
-### Articles
-
-- [Personal blog for free](https://www.julian.io/articles/blog-for-free.html)
-
 ### Demo
 
 - [Default template](https://cocky-leakey-9ad1bc.netlify.app/)
@@ -213,6 +209,11 @@ What is essential, I equipped it with two templates that you can use and modify 
 
 MIT
 
+### Articles
+
+- [Personal blog for free](https://www.julian.io/articles/blog-for-free.html)
+- [How I implemented a search engine for my static blog generator](https://dev.to/juliancwirko/how-i-implemented-search-engine-for-my-static-blog-generator-2dbh)
+
 ### Harold is built upon these excellent tools:
 
 - [unified](https://unifiedjs.com/)
@@ -221,4 +222,4 @@ MIT
 
 ### Contact
 
-julian.io
+[julian.io](https://www.julian.io)
