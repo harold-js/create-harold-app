@@ -44,7 +44,7 @@ As an option, you can choose with which template it should init the project. Pos
 - default
 - bare
 
-If you want to init the project with `bare` template, pass additional option `-t bare`. For example: `npm init harold-app my-app -t bare`
+If you want to init the project with `bare` template, pass additional option `-t bare`. For example: `npm init harold-app my-app -t bare` or with npm 7+ `npm init harold-app my-app -- -t bare`
 
 In the future, there will be a possibility to pass custom templates.
 
