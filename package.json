@@ -1,6 +1,6 @@
 {
   "name": "create-harold-app",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Static blog/site generator",
   "author": "Julian Ćwirko (julian.io)",
   "license": "MIT",
@@ -27,6 +27,7 @@
   "dependencies": {
     "commander": "^7.1.0",
     "cross-spawn": "^7.0.3",
+    "download": "^8.0.0",
     "eslint": "^7.12.0",
     "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-prettier": "^3.1.4",

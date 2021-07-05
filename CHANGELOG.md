@@ -1,3 +1,9 @@
+### [0.5.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.5.0) (2021-07-06)
+
+- templates are now located in separate repositories
+- nothing should change from the usage perspective
+- you can still use `npm init harold-app my-app` or `npm init harold-app my-app -t bare`
+
 ### [0.4.1](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.4.1) (2021-06-06)
 
 - fix postsList date element class name
