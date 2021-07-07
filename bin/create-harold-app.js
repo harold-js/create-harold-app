@@ -3,11 +3,16 @@
 const spawn = require('cross-spawn');
 const { program } = require('commander');
 const sanitizeName = require('sanitize-filename');
-const path = require('path');
-const fse = require('fs-extra');
+const download = require('download');
 const fs = require('fs');
 
-const TEMPLATES = ['bare', 'default'];
+const TEMPLATE_BARE_NAME = 'bare';
+const TEMPLATE_DEFAULT_NAME = 'default';
+const TEMPLATES = [TEMPLATE_BARE_NAME, TEMPLATE_DEFAULT_NAME];
+const BARE_PACKAGE_PATH =
+  'https://github.com/juliancwirko/harold-template-bare/archive/refs/heads/main.zip';
+const DEFAULT_PACKAGE_PATH =
+  'https://github.com/juliancwirko/harold-template-default/archive/refs/heads/main.zip';
 
 const packageJson = require('../package.json');
 
@@ -31,19 +36,22 @@ if (projectName && projectName.indexOf('-') !== 0) {
   // Create project directory
   spawn.sync('mkdir', [sanitizeName(projectName)], { stdio: 'inherit' });
 
-  let templateName = 'default';
+  let templateArchiveFilePath = DEFAULT_PACKAGE_PATH;
 
   // Choose template if user passes an option
   if (options.template && TEMPLATES.includes(options.template)) {
-    templateName = options.template;
+    templateArchiveFilePath =
+      options.template === TEMPLATE_BARE_NAME
+        ? BARE_PACKAGE_PATH
+        : DEFAULT_PACKAGE_PATH;
   }
 
-  // Copy required files to proper directories
-  fse
-    .copy(
-      path.join(__dirname, '../templates/' + templateName),
-      process.cwd() + '/' + projectName + '/src'
-    )
+  // Extract required files to proper directories
+  download(
+    templateArchiveFilePath,
+    process.cwd() + '/' + projectName + '/src',
+    { extract: true, strip: 1 }
+  )
     .then(() => {
       // Write proper package.json file for the project
       fs.readFile(
@@ -73,7 +81,16 @@ if (projectName && projectName.indexOf('-') !== 0) {
       );
     })
     .catch((err) => {
-      if (err) console.log(err);
+      if (err)
+        console.log(
+          "Can't download the " +
+            options.template +
+            ' template: (' +
+            err.statusCode +
+            ': ' +
+            err.statusMessage +
+            ')'
+        );
     });
 } else {
   console.log('Please provide project name (directory)');
