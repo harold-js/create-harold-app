@@ -15,7 +15,7 @@ Harold is a static site and blog generator based on Handlebars and Markdown. Wit
 ### Demo
 
 - [Default template](https://cocky-leakey-9ad1bc.netlify.app/)
-- [Docs template]()
+- [Docs template](https://hardcore-curie-8f1ce0.netlify.app/)
 - [Bare template](https://elegant-volhard-48a4d1.netlify.app/)
 
 ### Creating an app
