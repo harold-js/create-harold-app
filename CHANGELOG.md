@@ -1,3 +1,9 @@
+### [0.6.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.6.0) (2021-07-11)
+
+- new docs template as another option `-t docs`
+- some changes in harold-scripts regarding config file, no breaking changes
+- .haroldrc used in the src directory, so in template folder will overwrite the one used in the root of the app
+
 ### [0.5.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.5.0) (2021-07-06)
 
 - templates are now located in separate repositories

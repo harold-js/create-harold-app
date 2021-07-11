@@ -1,6 +1,6 @@
 ## create-harold-app
 
-Harold is a static site and blog generator based on Handlebars and Markdown. With a built-in search engine and ready-to-use responsive templates.
+Harold is a static site and blog generator based on Handlebars and Markdown. With a built-in search engine and ready-to-use responsive templates, including the one for docs websites.
 
 ![harold js image](https://www.haroldjs.com/assets/images/harold-start.png)
 
@@ -15,6 +15,7 @@ Harold is a static site and blog generator based on Handlebars and Markdown. Wit
 ### Demo
 
 - [Default template](https://cocky-leakey-9ad1bc.netlify.app/)
+- [Docs template]()
 - [Bare template](https://elegant-volhard-48a4d1.netlify.app/)
 
 ### Creating an app
@@ -42,9 +43,10 @@ Inside that directory, it will generate the initial project structure and instal
 
 As an option, you can choose with which template it should init the project. Possible choices:
 - default
+- docs
 - bare
 
-If you want to init the project with `bare` template, pass additional option `-t bare`. For example: `npm init harold-app my-app -t bare` or with npm 7+ `npm init harold-app my-app -- -t bare`
+If you want to init the project with `docs` template, pass additional option `-t docs`. For example: `npm init harold-app my-app -t docs` or with npm 7+ `npm init harold-app my-app -- -t docs`. The same for `bare` template.
 
 In the future, there will be a possibility to pass custom templates.
 
@@ -190,7 +192,7 @@ Here is the quick walk-through video on how to do that:
 
 I wanted to have a simple static site generator to build and host on Netlify. There are many such solutions, but I wanted to have complete control.
 
-What is essential, I equipped it with two templates that you can use and modify for your needs. I prepared the templates system for custom ones in the future. Templates are great because we don’t need to start every site/blog repeatedly from the ground.
+What is essential, I equipped it with three templates that you can use and modify for your needs. I prepared the templates system for custom ones in the future. Templates are great because we don’t need to start every site/blog repeatedly from the ground.
 
 ### When to use it
 
