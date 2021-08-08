@@ -93,7 +93,8 @@ if (options.template && Object.keys(TEMPLATES).includes(options.template)) {
 if (isUrl(templateArchiveFilePath)) {
   // Extract required files to proper directories
   // This should be an archive link from a repository
-  // We need to strip one level of directories in the archive
+  // Assumption: you have root directory with files in the archive, by default in repository package
+  // so, we need to strip one level of directories in the archive
   download(
     templateArchiveFilePath,
     process.cwd() + '/' + projectName + '/src',
@@ -114,10 +115,12 @@ if (isUrl(templateArchiveFilePath)) {
     });
 } else {
   // This should be an archive file from local path
-  // Assumed that we don't have files on one root level directory
+  // Assumption: you have root directory with files in the archive
+  // so, we need to strip one level of directories in the archive
   decompress(
     templateArchiveFilePath,
-    process.cwd() + '/' + projectName + '/src'
+    process.cwd() + '/' + projectName + '/src',
+    { strip: 1 }
   )
     .then(projectInit)
     .catch((err) => {

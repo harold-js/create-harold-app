@@ -48,9 +48,35 @@ As an option, you can choose with which template it should init the project. Pos
 
 If you want to init the project with `docs` template, pass additional option `-t docs`. For example: `npm init harold-app my-app -t docs` or with npm 7+ `npm init harold-app my-app -- -t docs`. The same for `bare` template.
 
-In the future, there will be a possibility to pass custom templates.
-
 Write `create-harold-app --help` in a terminal to get the list of options.
+
+### Custom templates
+
+You can prepare your template and reuse it on every new project initialization. You can do this by passing a path to your zip package. It can be a remote, hosted file or one from a local file system.
+
+Examples:
+
+```
+npm init harold-app my-app -t https://github.com/juliancwirko/harold-template-scaffold/archive/refs/heads/main.zip
+```
+
+with npm 7+
+```
+npm init harold-app my-app -- -t https://github.com/juliancwirko/harold-template-scaffold/archive/refs/heads/main.zip
+```
+
+Or it can be also local file:
+
+```
+npm init harold-app my-app -t ./main.zip
+```
+
+with npm 7+
+```
+npm init harold-app my-app -- -t ./main.zip
+```
+
+Read more about it in the docs here: [Custom templates](https://www.haroldjs.com/docs/custom-templates.html).
 
 ### Starting the app
 
@@ -69,7 +95,7 @@ You can configure the directory for md files (by default `posts`) and the direct
 
 You can also configure the name for output directory using `outputDirName` and if you want to host your site in subdirectory you would also need to add `hostDirName`.
 
-Example of `.haroldrc` (placed in the root of your harold app):
+Example of `.haroldrc` (placed in the root of the app or in the src directory):
 
 ```
 {

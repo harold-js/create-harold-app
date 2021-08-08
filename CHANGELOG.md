@@ -1,3 +1,7 @@
+### [0.7.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.7.0) (2021-08-08)
+
+- possibility to pass a custom template package when initializing the project
+
 ### [0.6.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.6.0) (2021-07-11)
 
 - new docs template as another option `-t docs`

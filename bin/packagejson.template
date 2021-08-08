@@ -8,6 +8,6 @@
     "start": "harold-scripts start"
   },
   "devDependencies": {
-    "harold-scripts": "^0.6.0"
+    "harold-scripts": "^0.7.0"
   }
 }
