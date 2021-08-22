@@ -1,3 +1,7 @@
+### [0.8.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.7.0) (2021-08-08)
+
+- possibility to copy custom static files or/and dirs structures starting from the root (use cases: robots.txt, manifest config, etc.) Configurable with .haroldrc file
+
 ### [0.7.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.7.0) (2021-08-08)
 
 - possibility to pass a custom template package when initializing the project

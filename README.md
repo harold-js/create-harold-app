@@ -179,6 +179,10 @@ You can use the `postsList` with `byTagName`, which you should set up the same a
 }}
 ```
 
+#### Adding robots.txt, manifest.json, and any other statics
+
+In many cases, there is a need to add some custom files to the root of your website. You can do this using the optional `src/statics` directory. Example: `src/statics/robots.txt` will be placed in `build/robots.txt` next to your index.html file. You can also nest your directories like `src/statics/some-dir/some-dir/file.txt`. It will land in `build/some-dir/some-dir/file.txt`.
+
 #### Hosting: GitHub Pages
 
 If you want to host Harold's website under your main username (username.github.io), you would need to rename your output directory to supported by Github. It is the `docs` directory. You would need to create a `.haroldrc` file and put the output directory name there.
@@ -218,7 +222,7 @@ Here is the quick walk-through video on how to do that:
 
 I wanted to have a simple static site generator to build and host on Netlify. There are many such solutions, but I wanted to have complete control.
 
-What is essential, I equipped it with three templates that you can use and modify for your needs. I prepared the templates system for custom ones in the future. Templates are great because we don’t need to start every site/blog repeatedly from the ground.
+What is essential, I equipped it with three templates that you can use and modify for your needs. I prepared the templates system for custom ones in the future. I also plan to provide some other complete thematic templates.
 
 ### When to use it
 

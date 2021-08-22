@@ -31,9 +31,10 @@ const args = process.argv;
 const projectName = args ? args[2] : undefined;
 
 program
-  .option('-t, --template <type>', 'template type (bare, default)')
+  .option('-t, --template <type>', 'Template type (bare, default, docs)')
   .option('-v, --version', 'Create Harold App version');
 program.parse(process.argv);
+program.showHelpAfterError();
 
 const options = program.opts();
 

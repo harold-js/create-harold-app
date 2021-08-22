@@ -1,6 +1,6 @@
 {
   "name": "create-harold-app",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Static blog/site generator",
   "author": "Julian Ćwirko (julian.io)",
   "license": "MIT",
@@ -25,7 +25,7 @@
     "prettier": "prettier --write '**/*.{js,json}'"
   },
   "dependencies": {
-    "commander": "^7.1.0",
+    "commander": "^8.1.0",
     "cross-spawn": "^7.0.3",
     "decompress": "^4.2.1",
     "download": "^8.0.0",
