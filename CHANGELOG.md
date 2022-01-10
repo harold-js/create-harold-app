@@ -1,3 +1,7 @@
+### [0.8.2](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.8.2) (2022-01-10)
+
+- added `allowFullScreen, allow` as allowed field in iframes - fix
+
 ### [0.8.1](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.8.1) (2022-01-10)
 
 - added `allowfullscreen` as allowed field in iframes
