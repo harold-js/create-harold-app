@@ -1,3 +1,7 @@
+### [0.8.3](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.8.3) (2022-09-18)
+
+- npm audit and some updates in harold-scripts
+
 ### [0.8.2](https://github.com/juliancwirko/create-harold-app/releases/tag/v0.8.2) (2022-01-10)
 
 - added `allowFullScreen, allow` as allowed field in iframes - fix
