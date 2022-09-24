@@ -252,6 +252,12 @@ MIT
 - [Handlebars](https://handlebarsjs.com/)
 - [Sass](https://sass-lang.com/)
 
+### Examples:
+
+- [julian.io](https://www.julian.io)
+- [elven.tools](https://www.elven.tools)
+- [elvenjs.com](https://www.elvenjs.com)
+
 ### Contact
 
 [julian.io](https://www.julian.io)
