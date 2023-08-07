@@ -1,4 +1,4 @@
-### [1.0.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v1.0.0) (...)
+### [1.0.0](https://github.com/juliancwirko/create-harold-app/releases/tag/v1.0.0) (2023-08-07)
 
 - switch to ESM,
 - min version of Node is now 16 and up
