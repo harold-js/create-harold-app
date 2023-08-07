@@ -1,12 +1,21 @@
 #!/usr/bin/env node
 
-const spawn = require('cross-spawn');
-const { program } = require('commander');
-const sanitizeName = require('sanitize-filename');
-const download = require('download');
-const decompress = require('decompress');
-const isUrl = require('is-absolute-url');
-const fs = require('fs');
+import spawn from 'cross-spawn';
+import { program } from 'commander';
+import sanitizeName from 'sanitize-filename';
+import download from 'download';
+import decompress from 'decompress';
+import isUrl from 'is-absolute-url';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const packageJson = require('../package.json');
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const TEMPLATE_BARE_NAME = 'bare';
 const TEMPLATE_DEFAULT_NAME = 'default';
@@ -25,8 +34,6 @@ const TEMPLATES = {
   [TEMPLATE_DOCS_NAME]: DOCS_PACKAGE_PATH,
 };
 
-const packageJson = require('../package.json');
-
 const args = process.argv;
 const projectName = args ? args[2] : undefined;
 
@@ -41,12 +48,12 @@ const options = program.opts();
 // Show version number
 if (options.version) {
   console.log(packageJson.version);
-  return;
+  process.exit(9);
 }
 
 if (!projectName || projectName.indexOf('-') === 0) {
   console.log('Please provide project name (directory)');
-  return;
+  process.exit(9);
 }
 
 // Write proper package.json file for the project
@@ -103,6 +110,7 @@ if (isUrl(templateArchiveFilePath)) {
   )
     .then(projectInit)
     .catch((err) => {
+      console.log(err);
       if (err)
         console.log(
           "Can't download the " +
