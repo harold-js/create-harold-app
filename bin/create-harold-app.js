@@ -3,36 +3,17 @@
 import spawn from 'cross-spawn';
 import { program } from 'commander';
 import sanitizeName from 'sanitize-filename';
-import download from 'download';
-import decompress from 'decompress';
 import isUrl from 'is-absolute-url';
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import {
+  DEFAULT_PACKAGE_PATH,
+  TEMPLATES,
+  triggerDownloadAndExtract,
+  triggerExtract,
+} from './utils.js';
 
 const require = createRequire(import.meta.url);
 const packageJson = require('../package.json');
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const TEMPLATE_BARE_NAME = 'bare';
-const TEMPLATE_DEFAULT_NAME = 'default';
-const TEMPLATE_DOCS_NAME = 'docs';
-
-const BARE_PACKAGE_PATH =
-  'https://github.com/juliancwirko/harold-template-bare/archive/refs/heads/main.zip';
-const DEFAULT_PACKAGE_PATH =
-  'https://github.com/juliancwirko/harold-template-default/archive/refs/heads/main.zip';
-const DOCS_PACKAGE_PATH =
-  'https://github.com/juliancwirko/harold-template-docs/archive/refs/heads/main.zip';
-
-const TEMPLATES = {
-  [TEMPLATE_BARE_NAME]: BARE_PACKAGE_PATH,
-  [TEMPLATE_DEFAULT_NAME]: DEFAULT_PACKAGE_PATH,
-  [TEMPLATE_DOCS_NAME]: DOCS_PACKAGE_PATH,
-};
 
 const args = process.argv;
 const projectName = args ? args[2] : undefined;
@@ -56,36 +37,6 @@ if (!projectName || projectName.indexOf('-') === 0) {
   process.exit(9);
 }
 
-// Write proper package.json file for the project
-// Run install script
-const projectInit = () => {
-  fs.readFile(
-    __dirname + '/' + 'packagejson.template',
-    'utf8',
-    function (err, data) {
-      if (err) {
-        return console.log(err);
-      }
-
-      const result = data.replace(/{{projectName}}/g, projectName);
-
-      fs.writeFile(
-        process.cwd() + '/' + projectName + '/' + 'package.json',
-        result,
-        'utf8',
-        function (err) {
-          if (err) return console.log(err);
-
-          // Install packages in the newly created project
-          process.chdir(projectName);
-          spawn.sync('npm', ['install'], { stdio: 'inherit' });
-          process.chdir('..');
-        }
-      );
-    }
-  );
-};
-
 // Create project directory
 spawn.sync('mkdir', [sanitizeName(projectName)], { stdio: 'inherit' });
 
@@ -103,45 +54,20 @@ if (isUrl(templateArchiveFilePath)) {
   // This should be an archive link from a repository
   // Assumption: you have root directory with files in the archive, by default in repository package
   // so, we need to strip one level of directories in the archive
-  download(
+  triggerDownloadAndExtract(
     templateArchiveFilePath,
     process.cwd() + '/' + projectName + '/src',
-    { extract: true, strip: 1 }
-  )
-    .then(projectInit)
-    .catch((err) => {
-      console.log(err);
-      if (err)
-        console.log(
-          "Can't download the " +
-            options.template +
-            ' template: (' +
-            err.statusCode +
-            ': ' +
-            err.statusMessage +
-            ')'
-        );
-    });
+    projectName,
+    options
+  );
 } else {
   // This should be an archive file from local path
   // Assumption: you have root directory with files in the archive
   // so, we need to strip one level of directories in the archive
-  decompress(
+  triggerExtract(
     templateArchiveFilePath,
     process.cwd() + '/' + projectName + '/src',
-    { strip: 1 }
-  )
-    .then(projectInit)
-    .catch((err) => {
-      if (err)
-        console.log(
-          "Can't extract the " +
-            options.template +
-            ' template: (' +
-            err.statusCode +
-            ': ' +
-            err.statusMessage +
-            ')'
-        );
-    });
+    projectName,
+    options
+  );
 }

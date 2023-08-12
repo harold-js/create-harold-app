@@ -1,6 +1,6 @@
 {
   "name": "create-harold-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Static blog/site generator",
   "author": "Julian Ćwirko (julian.io)",
   "license": "MIT",
@@ -14,7 +14,7 @@
   "homepage": "https://www.haroldjs.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/juliancwirko/create-harold-app"
+    "url": "https://github.com/harold-js/create-harold-app"
   },
   "keywords": [
     "blogging",
@@ -28,11 +28,11 @@
     "prettier": "prettier --write '**/*.{js,json}'"
   },
   "dependencies": {
+    "adm-zip": "0.5.10",
+    "axios": "1.4.0",
     "commander": "11.0.0",
     "cross-spawn": "7.0.3",
-    "decompress": "4.2.1",
-    "download": "8.0.0",
-    "eslint": "8.46.0",
+    "eslint": "8.47.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-prettier": "5.0.0",
     "is-absolute-url": "4.0.1",

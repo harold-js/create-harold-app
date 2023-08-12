@@ -57,12 +57,12 @@ You can prepare your template and reuse it on every new project initialization. 
 Examples:
 
 ```
-npm init harold-app my-app -t https://github.com/juliancwirko/harold-template-scaffold/archive/refs/heads/main.zip
+npm init harold-app my-app -t https://github.com/harold-js/harold-template-scaffold/archive/refs/heads/main.zip
 ```
 
 with npm 7+
 ```
-npm init harold-app my-app -- -t https://github.com/juliancwirko/harold-template-scaffold/archive/refs/heads/main.zip
+npm init harold-app my-app -- -t https://github.com/harold-js/harold-template-scaffold/archive/refs/heads/main.zip
 ```
 
 Or it can be also local file:
@@ -252,11 +252,13 @@ MIT
 - [Handlebars](https://handlebarsjs.com/)
 - [Sass](https://sass-lang.com/)
 
-### Examples:
+### Real live examples:
 
+- [haroldjs.com](https://www.haroldjs.com)
 - [julian.io](https://www.julian.io)
 - [elven.tools](https://www.elven.tools)
 - [elvenjs.com](https://www.elvenjs.com)
+- [useElven.com](https://www.useElven.com)
 
 ### Contact
 
