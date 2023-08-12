@@ -22,19 +22,19 @@ Harold is a static site and blog generator based on Handlebars and Markdown. Wit
 
 ##### npx
 ```
-npx create-harold-app my-app
+npx create-harold-app@latest my-app
 ```
 (npx is a package runner tool that comes with npm 5.2+ and higher, see instructions for older npm versions)
 
 ##### npm
 ```
-npm init harold-app my-app
+npm init harold-app@latest my-app
 ```
 npm init <initializer> is available in npm 6+
 
 ##### Yarn
 ```
-yarn create harold-app my-app
+yarn create harold-app@latest my-app
 ```
 yarn create <starter-kit-package> is available in Yarn 0.25+
 
@@ -46,9 +46,9 @@ As an option, you can choose with which template it should init the project. Pos
 - docs
 - bare
 
-If you want to init the project with `docs` template, pass additional option `-t docs`. For example: `npm init harold-app my-app -t docs` or with npm 7+ `npm init harold-app my-app -- -t docs`. The same for `bare` template.
+If you want to init the project with `docs` template, pass additional option `-t docs`. For example: `npm init harold-app@latest my-app -t docs` or with npm 7+ `npm init harold-app@latest my-app -- -t docs`. The same for `bare` template.
 
-Write `create-harold-app --help` in a terminal to get the list of options.
+Write `create-harold-app@latest --help` in a terminal to get the list of options.
 
 ### Custom templates
 
@@ -57,23 +57,23 @@ You can prepare your template and reuse it on every new project initialization. 
 Examples:
 
 ```
-npm init harold-app my-app -t https://github.com/harold-js/harold-template-scaffold/archive/refs/heads/main.zip
+npm init harold-app@latest my-app -t https://github.com/harold-js/harold-template-scaffold/archive/refs/heads/main.zip
 ```
 
 with npm 7+
 ```
-npm init harold-app my-app -- -t https://github.com/harold-js/harold-template-scaffold/archive/refs/heads/main.zip
+npm init harold-app@latest my-app -- -t https://github.com/harold-js/harold-template-scaffold/archive/refs/heads/main.zip
 ```
 
 Or it can be also local file:
 
 ```
-npm init harold-app my-app -t ./main.zip
+npm init harold-app@latest my-app -t ./main.zip
 ```
 
 with npm 7+
 ```
-npm init harold-app my-app -- -t ./main.zip
+npm init harold-app@latest my-app -- -t ./main.zip
 ```
 
 Read more about it in the docs here: [Custom templates](https://www.haroldjs.com/docs/custom-templates.html).

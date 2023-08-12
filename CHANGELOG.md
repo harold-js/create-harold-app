@@ -40,7 +40,7 @@
 
 - templates are now located in separate repositories
 - nothing should change from the usage perspective
-- you can still use `npm init harold-app my-app` or `npm init harold-app my-app -t bare`
+- you can still use `npm init harold-app@latest my-app` or `npm init harold-app@latest my-app -t bare`
 
 ### [0.4.1](https://github.com/harold-js/create-harold-app/releases/tag/v0.4.1) (2021-06-06)
 
