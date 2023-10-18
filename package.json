@@ -1,6 +1,6 @@
 {
   "name": "create-harold-app",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Static blog/site generator",
   "author": "Julian Ćwirko (julian.io)",
   "license": "MIT",
@@ -29,14 +29,14 @@
   },
   "dependencies": {
     "adm-zip": "0.5.10",
-    "axios": "1.4.0",
-    "commander": "11.0.0",
+    "axios": "1.5.1",
+    "commander": "11.1.0",
     "cross-spawn": "7.0.3",
-    "eslint": "8.47.0",
+    "eslint": "8.51.0",
     "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-prettier": "5.0.1",
     "is-absolute-url": "4.0.1",
-    "prettier": "3.0.1",
+    "prettier": "3.0.3",
     "sanitize-filename": "1.6.3"
   }
 }

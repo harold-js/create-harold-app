@@ -1,3 +1,8 @@
+### [1.1.1](https://github.com/harold-js/create-harold-app/releases/tag/v1.1.1) (2023-10-17)
+
+- update harold-scripts
+- update dependencies
+
 ### [1.1.0](https://github.com/harold-js/create-harold-app/releases/tag/v1.1.0) (2023-08-12)
 
 - adjust code for new repo links
