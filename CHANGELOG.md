@@ -1,3 +1,8 @@
+### [1.2.0](https://github.com/harold-js/create-harold-app/releases/tag/v1.2.0) (2024-11-10)
+
+- update harold-scripts
+- min Node version is 20
+
 ### [1.1.1](https://github.com/harold-js/create-harold-app/releases/tag/v1.1.1) (2023-10-17)
 
 - update harold-scripts
