@@ -1,3 +1,7 @@
+### [1.2.1](https://github.com/harold-js/create-harold-app/releases/tag/v1.2.1) (2024-11-10)
+
+- fix cosmiconfig configuration
+
 ### [1.2.0](https://github.com/harold-js/create-harold-app/releases/tag/v1.2.0) (2024-11-10)
 
 - update harold-scripts
