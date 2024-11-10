@@ -1,11 +1,11 @@
 {
   "name": "create-harold-app",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Static blog/site generator",
   "author": "Julian Ćwirko (julian.io)",
   "license": "MIT",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=20.0.0"
   },
   "type": "module",
   "bin": {
@@ -24,19 +24,24 @@
     "jamstack"
   ],
   "scripts": {
-    "lint": "eslint -c .eslintrc . --fix",
+    "lint": "eslint . --fix",
     "prettier": "prettier --write '**/*.{js,json}'"
   },
   "dependencies": {
-    "adm-zip": "0.5.10",
-    "axios": "1.5.1",
-    "commander": "11.1.0",
-    "cross-spawn": "7.0.3",
-    "eslint": "8.51.0",
-    "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-prettier": "5.0.1",
+    "adm-zip": "0.5.16",
+    "axios": "1.7.7",
+    "commander": "12.1.0",
+    "cross-spawn": "7.0.5",
     "is-absolute-url": "4.0.1",
-    "prettier": "3.0.3",
+    "prettier": "3.3.3",
     "sanitize-filename": "1.6.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.14.0",
+    "eslint": "9.14.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "globals": "^15.12.0"
   }
 }
