@@ -15,22 +15,16 @@ import {
 const require = createRequire(import.meta.url);
 const packageJson = require('../package.json');
 
-const args = process.argv;
-const projectName = args ? args[2] : undefined;
-
 program
-  .option('-t, --template <type>', 'Template type (bare, default, docs)')
-  .option('-v, --version', 'Create Harold App version');
+  .version(packageJson.version, '-v, --version', 'Create Harold App version')
+  .argument('<projectName>', 'Project directory name')
+  .option('-t, --template <type>', 'Template type (bare, default, docs)');
+
 program.parse(process.argv);
 program.showHelpAfterError();
 
 const options = program.opts();
-
-// Show version number
-if (options.version) {
-  console.log(packageJson.version);
-  process.exit(9);
-}
+const projectName = program.args[0];
 
 if (!projectName || projectName.indexOf('-') === 0) {
   console.log('Please provide project name (directory)');

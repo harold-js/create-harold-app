@@ -1,3 +1,14 @@
+### [1.3.0](https://github.com/harold-js/create-harold-app/releases/tag/v1.3.0) (2025-12-20)
+
+- update dependencies
+- fix initial styles load problem
+- check which directories are required
+- check files existance in dirs
+- add an option to minify css output, enabled by default
+- add an option to minify html output, enabled by default
+- improve web vitals
+- improve css utils ways of use
+
 ### [1.2.1](https://github.com/harold-js/create-harold-app/releases/tag/v1.2.1) (2024-11-10)
 
 - fix cosmiconfig configuration
