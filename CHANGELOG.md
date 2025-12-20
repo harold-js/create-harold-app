@@ -1,3 +1,8 @@
+### [1.3.1](https://github.com/harold-js/create-harold-app/releases/tag/v1.3.1) (2025-12-20)
+
+- normalize line ending
+- vibe code some tests
+
 ### [1.3.0](https://github.com/harold-js/create-harold-app/releases/tag/v1.3.0) (2025-12-20)
 
 - update dependencies
