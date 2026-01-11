@@ -1,3 +1,7 @@
+### [1.4.0](https://github.com/harold-js/create-harold-app/releases/tag/v1.4.0) (2026-01-11)
+
+- handle nested directories in posts directory
+
 ### [1.3.1](https://github.com/harold-js/create-harold-app/releases/tag/v1.3.1) (2025-12-20)
 
 - normalize line ending
