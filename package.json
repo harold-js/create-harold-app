@@ -1,6 +1,6 @@
 {
   "name": "create-harold-app",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Static blog/site generator",
   "author": "Julian Ćwirko (julian.io)",
   "license": "MIT",
@@ -9,12 +9,12 @@
   },
   "type": "module",
   "bin": {
-    "create-harold-app": "./bin/create-harold-app.js"
+    "create-harold-app": "bin/create-harold-app.js"
   },
   "homepage": "https://www.haroldjs.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/harold-js/create-harold-app"
+    "url": "git+https://github.com/harold-js/create-harold-app.git"
   },
   "keywords": [
     "blogging",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "adm-zip": "0.5.16",
-    "axios": "1.13.2",
+    "axios": "1.13.6",
     "commander": "14.0.2",
     "cross-spawn": "7.0.6",
     "is-absolute-url": "5.0.0",

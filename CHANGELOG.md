@@ -1,3 +1,8 @@
+### [1.4.1](https://github.com/harold-js/create-harold-app/releases/tag/v1.4.1) (2026-03-01)
+
+- better logging
+- code style improvements for harold-scripts
+
 ### [1.4.0](https://github.com/harold-js/create-harold-app/releases/tag/v1.4.0) (2026-01-11)
 
 - handle nested directories in posts directory

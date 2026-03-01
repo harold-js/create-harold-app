@@ -218,6 +218,16 @@ Here is the quick walk-through video on how to do that:
 
 - [youtu.be/ZjeYgAgiHRE](https://youtu.be/ZjeYgAgiHRE)
 
+### AI-assisted website building with Potion Kit
+
+[Potion Kit](https://github.com/uiPotion/potion-kit) is a CLI tool that combines HaroldJS with [UIPotion](https://uipotion.com) components and AI chat to help you build static websites interactively. You describe what you want, and the AI suggests components from real specs, constrained by HaroldJS conventions.
+
+```
+npx potion-kit chat
+```
+
+It supports multiple LLM providers (OpenAI, Anthropic, Moonshot/Kimi). Learn more at the [Potion Kit repository](https://github.com/uiPotion/potion-kit).
+
 ### Why another one?
 
 I wanted to have a simple static site generator to build and host on Netlify. There are many such solutions, but I wanted to have complete control.
