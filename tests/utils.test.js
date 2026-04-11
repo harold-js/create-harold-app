@@ -252,4 +252,31 @@ describe('create-harold-app utils', { concurrency: false }, () => {
       fs.rmSync(tempDir, { recursive: true, force: true });
     }
   });
+
+  it('runs correctly when the CLI is invoked through a symlinked path', () => {
+    const tempDir = fs.mkdtempSync(
+      path.join(os.tmpdir(), 'create-harold-app-cli-symlink-')
+    );
+    const symlinkPath = path.join(tempDir, 'create-harold-app');
+    const projectName = 'demo-app';
+
+    fs.symlinkSync(cliPath, symlinkPath);
+
+    const result = spawnSync(
+      process.execPath,
+      [symlinkPath, projectName, '-t', './missing.zip'],
+      {
+        cwd: tempDir,
+        encoding: 'utf8',
+      }
+    );
+
+    try {
+      assert.equal(result.status, 1);
+      assert.match(result.stderr, /Invalid filename/);
+      assert.equal(fs.existsSync(path.join(tempDir, projectName)), false);
+    } finally {
+      fs.rmSync(tempDir, { recursive: true, force: true });
+    }
+  });
 });

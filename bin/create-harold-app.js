@@ -2,7 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { program } from 'commander';
 import sanitizeName from 'sanitize-filename';
 import isUrl from 'is-absolute-url';
@@ -16,6 +16,7 @@ import {
 
 const require = createRequire(import.meta.url);
 const packageJson = require('../package.json');
+const cliFilePath = fs.realpathSync(fileURLToPath(import.meta.url));
 
 export const run = async (argv = process.argv) => {
   program
@@ -100,7 +101,9 @@ export const run = async (argv = process.argv) => {
 };
 
 const isDirectExecution =
-  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+  process.argv[1] &&
+  fs.existsSync(process.argv[1]) &&
+  fs.realpathSync(process.argv[1]) === cliFilePath;
 
 if (isDirectExecution) {
   run().catch((err) => {

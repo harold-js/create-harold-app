@@ -1,4 +1,8 @@
-### [1.4.2](https://github.com/harold-js/create-harold-app/releases/tag/v1.4.2) (2026-04-02)
+### [1.4.3](https://github.com/harold-js/create-harold-app/releases/tag/v1.4.3) (2026-04-11)
+
+- fix CLI execution when invoked through npm init and npx
+
+### [1.4.2](https://github.com/harold-js/create-harold-app/releases/tag/v1.4.2) (2026-04-11)
 
 - align both packages to Node 24
 - keep generated harold-scripts version controlled explicitly in package metadata
