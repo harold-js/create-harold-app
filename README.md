@@ -20,6 +20,8 @@ Harold is a static site and blog generator based on Handlebars and Markdown. Wit
 
 ### Creating an app
 
+Harold 1.4.2 requires Node 24 or newer.
+
 ##### npx
 ```
 npx create-harold-app@latest my-app

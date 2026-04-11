@@ -3,8 +3,12 @@ import spawn from 'cross-spawn';
 import axios from 'axios';
 import AdmZip from 'adm-zip';
 import path from 'node:path';
+import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 
+const require = createRequire(import.meta.url);
+const packageJson = require('../package.json');
+const haroldScriptsVersion = packageJson.createHaroldApp?.['harold-scripts'];
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -27,34 +31,78 @@ export const TEMPLATES = {
   [TEMPLATE_DOCS_NAME]: DOCS_PACKAGE_PATH,
 };
 
+export const renderProjectPackageJson = (projectName) => {
+  const templatePath = path.join(__dirname, 'packagejson.template');
+  const template = fs.readFileSync(templatePath, 'utf8');
+
+  if (!haroldScriptsVersion) {
+    throw new Error(
+      'Missing createHaroldApp["harold-scripts"] in create-harold-app package.json'
+    );
+  }
+
+  return template
+    .replace(/{{projectName}}/g, projectName)
+    .replace(/{{haroldScriptsVersion}}/g, haroldScriptsVersion);
+};
+
+export const getArchiveEntryPath = (entryName, rootDirName) => {
+  const entryPathParts = entryName.split('/');
+
+  if (entryPathParts[0] !== rootDirName) {
+    throw new Error(
+      'Your custom template archive should include one root directory.'
+    );
+  }
+
+  return entryPathParts.slice(1).join('/');
+};
+
+export const resolveArchiveTargetPath = (baseDir, entryName) => {
+  const basePath = path.resolve(baseDir);
+  const targetPath = path.resolve(basePath, entryName);
+  const relativePath = path.relative(basePath, targetPath);
+
+  if (
+    relativePath === '..' ||
+    relativePath.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(relativePath)
+  ) {
+    throw new Error(`Archive entry escapes target directory: ${entryName}`);
+  }
+
+  return targetPath;
+};
+
+export const installProjectDependencies = (projectName) => {
+  const previousCwd = process.cwd();
+
+  try {
+    process.chdir(projectName);
+    const result = spawn.sync('npm', ['install'], { stdio: 'inherit' });
+
+    if (result.error) {
+      throw result.error;
+    }
+
+    if (result.status !== 0) {
+      process.exit(result.status ?? 1);
+    }
+  } finally {
+    process.chdir(previousCwd);
+  }
+};
+
 // Write proper package.json file for the project
 // Run install script
 export const projectInit = (projectName) => {
-  fs.readFile(
-    __dirname + '/' + 'packagejson.template',
-    'utf8',
-    function (err, data) {
-      if (err) {
-        return console.log(err);
-      }
+  const packageJsonPath = path.join(process.cwd(), projectName, 'package.json');
+  const projectPackageJson = renderProjectPackageJson(projectName);
 
-      const result = data.replace(/{{projectName}}/g, projectName);
+  fs.writeFileSync(packageJsonPath, projectPackageJson, 'utf8');
 
-      fs.writeFile(
-        process.cwd() + '/' + projectName + '/' + 'package.json',
-        result,
-        'utf8',
-        function (err) {
-          if (err) return console.log(err);
-
-          // Install packages in the newly created project
-          process.chdir(projectName);
-          spawn.sync('npm', ['install'], { stdio: 'inherit' });
-          process.chdir('..');
-        }
-      );
-    }
-  );
+  // Install packages in the newly created project
+  installProjectDependencies(projectName);
 };
 
 export const triggerExtract = (fileNameOrRawData, dirPath, projectName) => {
@@ -70,19 +118,19 @@ export const triggerExtract = (fileNameOrRawData, dirPath, projectName) => {
   }
 
   zipEntries.forEach((entry) => {
-    const entryName = entry.entryName;
-    const flattenedEntryName = entryName.replace(mainDirInZipName, '');
+    const flattenedEntryName = getArchiveEntryPath(
+      entry.entryName,
+      mainDirInZipName
+    );
+    const targetPath = resolveArchiveTargetPath(dirPath, flattenedEntryName);
 
     // If the entry is a directory, create it in the extraction directory
     if (entry.isDirectory) {
-      const targetDir = path.join(dirPath, flattenedEntryName);
-      if (!fs.existsSync(targetDir)) {
-        fs.mkdirSync(targetDir);
-      }
+      fs.mkdirSync(targetPath, { recursive: true });
     } else {
       // If the entry is a file, extract it to the extraction directory
-      const targetFilePath = path.join(dirPath, flattenedEntryName);
-      fs.writeFileSync(targetFilePath, entry.getData());
+      fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+      fs.writeFileSync(targetPath, entry.getData());
     }
   });
 
@@ -103,9 +151,20 @@ export const triggerDownloadAndExtract = async (
     triggerExtract(response.data, dirPath, projectName);
   } catch (err) {
     if (axios.isAxiosError(err)) {
-      console.log(
-        `Can't download the ${options.template} template: (${err.code}:${err.status})`
+      const errorDetails = [err.code, err.response?.status ?? err.status]
+        .filter(
+          (value) => value !== undefined && value !== null && value !== ''
+        )
+        .join(':');
+
+      throw new Error(
+        `Can't download the ${options.template} template${
+          errorDetails ? ` (${errorDetails})` : ''
+        }`,
+        { cause: err }
       );
     }
+
+    throw err;
   }
 };

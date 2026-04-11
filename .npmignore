@@ -1,3 +1,4 @@
-.editorconfig
+tests
 eslint.config.mjs
+.editorconfig
 .prettierrc
